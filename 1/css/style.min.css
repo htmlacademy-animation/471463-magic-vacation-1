@@ -1289,9 +1289,9 @@ img {
 
 @keyframes horizontalExpand {
   from {
-    transform: scaleX(0); }
+    width: 0; }
   to {
-    transform: scaleX(1); } }
+    width: 100%; } }
 
 .form {
   position: relative;
@@ -1320,12 +1320,16 @@ img {
       opacity: 1;
       pointer-events: auto; } }
 
+.form__field-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100% - 21rem);
+  margin-right: 3rem; }
+
 .form__field {
   flex: none;
-  margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -3174,7 +3178,7 @@ img {
   height: 4rem;
   color: #5f458c;
   border-radius: 50%;
-  transition: color 0.35s linear; }
+  transition: 0.35s linear; }
   .social-block__toggler:focus {
     outline: none; }
   @media (max-width: 1024px) and (orientation: portrait) {
