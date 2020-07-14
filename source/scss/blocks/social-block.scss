@@ -20,7 +20,7 @@
   color: $c-dark;
   border-radius: 50%;
 
-  transition: color $base-duration linear;
+  transition: $base-duration linear;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
