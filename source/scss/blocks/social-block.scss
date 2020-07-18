@@ -103,6 +103,8 @@
   opacity: 0;
   pointer-events: none;
 
+  transition: $base-duration linear;
+
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
   }
