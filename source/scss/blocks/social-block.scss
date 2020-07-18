@@ -1,6 +1,8 @@
 .social-block {
   position: relative;
 
+  transition: $base-duration ease;
+
   &:hover {
     .social-block__list {
       opacity: 1;
@@ -17,6 +19,8 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+
+  transition: $base-duration linear;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +39,8 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+
+    transition: $base-duration linear;
   }
 
   svg {
@@ -42,6 +48,8 @@
     display: block;
     width: 2.3rem;
     height: 2.2rem;
+
+    transition: $base-duration linear;
   }
 
   &:hover,
@@ -51,6 +59,11 @@
     &::before {
       width: 112.5%;
       height: 112.5%;
+    }
+
+    & + .social-block__link {
+      margin-top: 0;
+      opacity: 1;
     }
   }
 
@@ -89,6 +102,8 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+
+  transition: $base-duration linear;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +155,11 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      margin-top: 0;
+      opacity: 1;
+    }
   }
 
   li {
@@ -165,9 +185,16 @@
   display: block;
   width: 4rem;
   height: 4rem;
+  margin-top: 6px;
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transition-property: color, background-color, border-color, opacity,
+    margin-top;
+  transition-duration: $base-duration, $base-duration, $base-duration, 0.4s,
+    0.4s;
+  transition-timing-function: ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -207,6 +234,8 @@
   }
 
   &--fb {
+    transition-delay: 0.1s;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +248,8 @@
   }
 
   &--insta {
+    transition-delay: 0.2s;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +262,8 @@
   }
 
   &--vk {
+    transition-delay: 0.3s;
+
     svg {
       width: 1.7rem;
       height: 1rem;
