@@ -36,6 +36,15 @@
   width: 10rem;
   color: $c-light;
 
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: opacity, transform, 0.6s cubic-bezier(0.3, 0.95, 0.76, 0.89) 0.2s;
+
+  .js-loaded & {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   @media (min-width: $stop-scaling) {
     top: -5px;
     padding: 10px 0;
@@ -130,6 +139,13 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.3, 0.95, 0.76, 0.89) 0.5s;
+
+  .js-loaded & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
