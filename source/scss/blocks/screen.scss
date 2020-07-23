@@ -309,8 +309,22 @@
   }
 }
 
-.screen--prizes {
+.screen-overlay {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: $c-dark;
+  transform: scaleY(0);
+  transform-origin: 0 100%;
+  transition: transform 0.45s ease-out;
+
+  &.active {
+    transform: scaleY(1);
+  }
 }
 
 .screen--game {
