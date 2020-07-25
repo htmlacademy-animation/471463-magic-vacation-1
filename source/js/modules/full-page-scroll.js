@@ -3,18 +3,20 @@ import throttle from 'lodash/throttle';
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
+    this.SCREEN_CHANGE_DELAY = 450;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.overlay = document.querySelector(`.screen-overlay`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
-    this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.onUrlHashChangedHandler = this.onUrlHashChanged.bind(this);
   }
 
   init() {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
-    window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
+    window.addEventListener(`popstate`, this.onUrlHashChangedHandler);
 
     this.onUrlHashChanged();
   }
@@ -34,7 +36,18 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    const isPrizesScreenActive = this.activeScreen === 2;
+    if (isPrizesScreenActive) {
+      this.overlay.classList.add(`active`);
+      setTimeout(
+          this.changeVisibilityDisplay.bind(this),
+          this.SCREEN_CHANGE_DELAY
+      );
+    } else {
+      this.overlay.classList.remove(`active`);
+      this.changeVisibilityDisplay();
+    }
+
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
