@@ -37,6 +37,13 @@ export default class FullPageScroll {
 
   changePageDisplay() {
     const isPrizesScreenActive = this.activeScreen === 2;
+    const isRulesScreenActive = this.activeScreen === 3;
+    const rulesLink = document.querySelector(`.rules__link.btn`);
+
+    if (isRulesScreenActive && rulesLink && rulesLink.classList.contains(`active`)) {
+      rulesLink.classList.remove(`active`);
+    }
+
     if (isPrizesScreenActive) {
       this.overlay.classList.add(`active`);
       setTimeout(

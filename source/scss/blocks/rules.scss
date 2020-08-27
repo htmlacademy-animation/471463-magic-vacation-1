@@ -1,3 +1,7 @@
+@import "../animations/bounceIn.scss";
+@import "../animations/fadeInToLeft.scss";
+@import "../animations/expandingButton.scss";
+
 .rules {
   position: relative;
   flex-grow: 1;
@@ -160,6 +164,11 @@
     line-height: 5rem;
     text-align: center;
 
+    animation-name: bounceIn;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
       width: 2.5rem;
@@ -180,8 +189,25 @@
   p {
     margin: 0;
 
+    animation-name: fadeInToLeft;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
+    }
+  }
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      &::before {
+        animation-delay: ($i - 1) * $base-duration;
+      }
+
+      p {
+        animation-delay: ($i - 1) * $base-duration + $base-duration;
+      }
     }
   }
 }
@@ -190,6 +216,16 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  opacity: 0;
+  transition: $base-duration opacity ease-in-out;
+
+  &.active {
+    opacity: 1;
+    animation-name: expandingButton;
+    animation-duration: $base-duration;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
