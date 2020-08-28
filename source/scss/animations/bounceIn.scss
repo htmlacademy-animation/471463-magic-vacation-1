@@ -1,0 +1,19 @@
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    color: rgba(#ffffff, 0);
+  }
+
+  60% {
+    color: rgba(#ffffff, 0.8);
+  }
+
+  80% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    color: rgba(#ffffff, 1);
+  }
+}
