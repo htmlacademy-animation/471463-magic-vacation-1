@@ -1,6 +1,5 @@
 @import "../animations/bounceIn.scss";
 @import "../animations/fadeInToLeft.scss";
-@import "../animations/expandingButton.scss";
 
 .rules {
   position: relative;
@@ -214,17 +213,15 @@
 
 .rules__link {
   position: absolute;
+  width: 0;
   bottom: 6rem;
   right: 5.6rem;
   opacity: 0;
-  transition: $base-duration opacity ease-in-out;
+  transition: all $base-duration ease-in-out;
 
   &.active {
     opacity: 1;
-    animation-name: expandingButton;
-    animation-duration: $base-duration;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards;
+    width: 180px;
   }
 
   @media (min-width: $stop-scaling) {
