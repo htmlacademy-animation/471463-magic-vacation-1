@@ -4,6 +4,6 @@ export default () => {
   const lastRulesItem = rulesItems[rulesItems.length - 1];
 
   lastRulesItem.addEventListener(`animationend`, function () {
-    rulesLink.classList.add(`active`);
+    rulesLink.classList.remove(`not-visible`);
   });
 };

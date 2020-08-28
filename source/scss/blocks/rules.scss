@@ -213,15 +213,14 @@
 
 .rules__link {
   position: absolute;
-  width: 0;
+  width: 180px;
   bottom: 6rem;
   right: 5.6rem;
-  opacity: 0;
   transition: all $base-duration ease-in-out;
 
-  &.active {
-    opacity: 1;
-    width: 180px;
+  &.not-visible {
+    width: 0;
+    opacity: 0;
   }
 
   @media (min-width: $stop-scaling) {

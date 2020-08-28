@@ -40,8 +40,12 @@ export default class FullPageScroll {
     const isRulesScreenActive = this.activeScreen === 3;
     const rulesLink = document.querySelector(`.rules__link.btn`);
 
-    if (isRulesScreenActive && rulesLink && rulesLink.classList.contains(`active`)) {
-      rulesLink.classList.remove(`active`);
+    if (
+      isRulesScreenActive &&
+      rulesLink &&
+      !rulesLink.classList.contains(`not-visible`)
+    ) {
+      rulesLink.classList.add(`not-visible`);
     }
 
     if (isPrizesScreenActive) {
