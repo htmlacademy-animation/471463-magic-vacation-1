@@ -2446,12 +2446,6 @@ img {
     opacity: 1;
     transform: translateY(0); } }
 
-@keyframes expandingButton {
-  from {
-    width: 0; }
-  to {
-    width: 180px; } }
-
 .rules {
   position: relative;
   flex-grow: 1;
@@ -2634,16 +2628,13 @@ img {
 
 .rules__link {
   position: absolute;
+  width: 180px;
   bottom: 6rem;
   right: 5.6rem;
-  opacity: 0;
-  transition: 0.35s opacity ease-in-out; }
-  .rules__link.active {
-    opacity: 1;
-    animation-name: expandingButton;
-    animation-duration: 0.35s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: backwards; }
+  transition: all 0.35s ease-in-out; }
+  .rules__link.not-visible {
+    width: 0;
+    opacity: 0; }
   @media (min-width: 2000px) {
     .rules__link {
       bottom: 60px;
