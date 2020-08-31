@@ -58,3 +58,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin animated-letters {
+  .animated-word {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 5px;
+  }
+
+  .animated-word > span {
+    display: inline-block;
+    transform: translate3d(0, 1.25em, 0);
+  }
+
+  &.active .animated-word > span {
+    transform: translate3d(0, 0, 0);
+  }
+}
