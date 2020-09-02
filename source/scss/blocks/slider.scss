@@ -1,4 +1,5 @@
 @import "../animations/fadeInToLeft.scss";
+@import "../animations/rollingOut.scss";
 
 .slider {
   position: relative;
@@ -177,6 +178,20 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+
+  .screen.active & {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+
+    &--prev {
+      animation-name: rollingOutFromLeft;
+    }
+
+    &--next {
+      animation-name: rollingOutFromRight;
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
